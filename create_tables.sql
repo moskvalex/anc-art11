@@ -1,2 +1,2 @@
 CREATE TABLE Dosar(id TEXT NOT NULL PRIMARY KEY, year INTEGER NOT NULL, number INTEGER NOT NULL, depun DATE NOT NULL, solutie DATE DEFAULT NULL, ordin TEXT DEFAULT NULL, result INTEGER DEFAULT NULL, termen DATE DEFAULT NULL, suplimentar INTEGER DEFAULT False);
-CREATE TABLE Termen( id TEXT, termen DATA, stadiu DATA, UNIQUE(id, termen) );
+CREATE TABLE Termen( id TEXT, termen DATE, stadiu DATE, UNIQUE(id, termen) );
