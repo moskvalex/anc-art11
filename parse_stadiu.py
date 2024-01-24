@@ -217,7 +217,7 @@ SQLlogger.info('Modified: ' + str(db.rowcount))
 # Помечаем дела, для которых изменялся термен, как дела с дозапросом suplimentar=true
 db.execute( 'UPDATE Dosar SET suplimentar=True WHERE id IN (SELECT id FROM Termen GROUP BY id HAVING COUNT(*) > 1)' )
 SQLlogger.info('Modified: ' + str(db.rowcount))
-# Помечаем дела, для которых термен отстоит от даты подачи больше, чем на 183 дня, как дела с дозапросом suplimentar=true
+# Помечаем дела, для которых термен отстоит от даты подачи больше, чем на 365 дней, как дела с дозапросом suplimentar=true
 db.execute( 'UPDATE Dosar SET suplimentar=True WHERE (JULIANDAY(Termen)-JULIANDAY(depun))>365' )
 SQLlogger.info('Modified: ' + str(db.rowcount))
 
