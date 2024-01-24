@@ -1,0 +1,8 @@
+BeautifulSoup
+datetime
+PyMuPDF
+logging
+os
+re
+requests
+sqlite3
