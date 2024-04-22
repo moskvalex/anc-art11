@@ -13,11 +13,11 @@ Headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Ge
 r = requests.get(OrdineUrl, headers=Headers)
 
 # Проходимся по всем ссылкам со страницы с приказами по 11 артикулу https://cetatenie.just.ro/ordine-articolul-1-1/
-# Выкачиваем все ссылки, которые содержат в адресе cetatenie.just.ro/wp-content/uploads
+# Выкачиваем все ссылки, которые содержат в адресе cetatenie.just.ro/storage
 soup = BeautifulSoup(r.text, 'html.parser')
-for link in soup.find_all('a', href=re.compile('cetatenie.just.ro/wp-content/uploads')):
+for link in soup.find_all('a', href=re.compile('cetatenie.just.ro/storage')):
     OrdineUrl = link.get('href')
-    FileName = Ordins+OrdineUrl.replace('https://cetatenie.just.ro/wp-content/uploads/', '').replace('/', '-')
+    FileName = Ordins+OrdineUrl.replace('https://cetatenie.just.ro/storage/', '').replace('/', '-')
     if not os.path.isfile(FileName):
         r = requests.get(OrdineUrl, headers=Headers)
         if r.status_code == 200:
